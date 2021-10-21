@@ -5,7 +5,7 @@ import csv
 import json
 from multiprocessing import Pool
 
-pages_dir = Path('./output/')
+pages_dir = Path('./data/')
 page_paths = sorted(list(pages_dir.glob('*.html')))  # HTML pages saved by curl/wget
 
 appointment_strainer = SoupStrainer('a', title='An diesem Tag einen Termin buchen')
@@ -58,7 +58,7 @@ if __name__ == '__main__':
         })
 
     print("Dumping to output.json")
-    with open('output.json', 'w') as output_file:
+    with open('./output/output.json', 'w') as output_file:
         json.dump(output, output_file)
 
     print("Dumping to output.csv")
@@ -68,7 +68,7 @@ if __name__ == '__main__':
         'dateCheckedDayOfWeek', 'dateCheckedDayOfMonth', 'appointmentDaysFound',
         'earliestAppointmentDate', 'earliestAppointmentDelta'
     ]
-    with open('output.csv', 'w', encoding='UTF8', newline='') as f:
+    with open('./output/output.csv', 'w', encoding='UTF8', newline='') as f:
         writer = csv.DictWriter(f, fieldnames=fields)
         writer.writeheader()
         writer.writerows(output)

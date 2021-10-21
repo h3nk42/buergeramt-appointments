@@ -12,7 +12,7 @@ NOW=$(TZ="Europe/Berlin" date +"%Y-%m-%d,%H.%M")
 -H 'Accept-Language: en-gb' \
 -H 'Accept-Encoding: gzip, deflate' \
 -H 'Connection: keep-alive' \
--o "/var/appointments/output/${NOW}.html"
+-o "/Users/neekh/htw/wise21/ds/buergeramt-appointments/data/${NOW}.html"
 
 sleep 5
 
@@ -26,4 +26,4 @@ NEXT_MONTH=$(TZ="Europe/Berlin" date --date="`date --date="next month" +%Y-%m-01
 -H 'Accept-Language: en-gb' \
 -H 'Accept-Encoding: gzip, deflate' \
 -H 'Connection: keep-alive' \
--o "/var/appointments/output/${NOW}+1M.html"
+-o "/Users/neekh/htw/wise21/ds/buergeramt-appointments/data/${NOW}+1M.html"
